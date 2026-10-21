@@ -1,0 +1,28 @@
+<section id="competences" class="section">
+  <div class="container">
+    <div appReveal>
+      <h2 class="section-title">Compétences<span class="dot">.</span></h2>
+      <p class="section-lead">De la donnée brute à la décision : modélisation, ETL, visualisation, machine learning et mise en production.</p>
+    </div>
+
+    <div class="skills">
+      @for (group of groups; track group.category; let i = $index) {
+        <article class="card skills__group" appReveal [revealDelay]="(i % 3) * 80">
+          <h3 class="skills__category">{{ group.category }}</h3>
+          <ul class="skills__list">
+            @for (skill of group.skills; track skill.name) {
+              <li class="skills__item">
+                @if (skill.icon) {
+                  <i [class]="skill.icon + ' skills__icon'" aria-hidden="true"></i>
+                } @else {
+                  <span class="skills__icon skills__icon--dot" aria-hidden="true"></span>
+                }
+                {{ skill.name }}
+              </li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

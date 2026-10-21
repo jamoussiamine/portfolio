@@ -1,0 +1,22 @@
+<section id="accueil" class="hero">
+  <div class="container hero__inner">
+    <p class="hero__hello">Bonjour, je suis</p>
+    <h1 class="hero__name">{{ profile.firstName }} {{ profile.lastName }}<span class="dot">.</span></h1>
+
+    <h2 class="hero__title">
+      {{ profile.titlePrefix }}
+      <span class="hero__typed" aria-hidden="true">{{ typed() }}</span><span class="hero__cursor" aria-hidden="true"></span>
+      <span class="sr-only">{{ profile.titleWords.join(', ') }}</span>
+    </h2>
+
+    <p class="hero__tagline">{{ profile.tagline }}</p>
+
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="#projets">Voir mes projets</a>
+      <a class="btn btn--outline" [href]="profile.cvUrl" target="_blank" rel="noopener">
+        <app-icon name="external" [size]="18" />
+        Voir mon CV <span class="sr-only">(nouvel onglet)</span>
+      </a>
+    </div>
+  </div>
+</section>

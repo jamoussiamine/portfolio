@@ -1,0 +1,35 @@
+<header class="nav" [class.nav--scrolled]="scrolled() || menuOpen()">
+  <nav class="container nav__inner" aria-label="Navigation principale">
+    <a class="nav__logo" href="#accueil" (click)="closeMenu()">
+      {{ profile.firstName.split(' ').at(-1) }}<span class="dot">.</span>
+    </a>
+
+    <button
+      class="nav__burger"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="nav-menu"
+      (click)="toggleMenu()"
+    >
+      <span class="sr-only">{{ menuOpen() ? 'Fermer le menu' : 'Ouvrir le menu' }}</span>
+      <span class="nav__burger-bar"></span>
+      <span class="nav__burger-bar"></span>
+      <span class="nav__burger-bar"></span>
+    </button>
+
+    <ul id="nav-menu" class="nav__links" [class.nav__links--open]="menuOpen()">
+      @for (s of sections; track s.id) {
+        <li>
+          <a
+            class="nav__link"
+            [href]="'#' + s.id"
+            [class.nav__link--active]="active() === s.id"
+            [attr.aria-current]="active() === s.id ? 'true' : null"
+            (click)="closeMenu()"
+            >{{ s.label }}</a
+          >
+        </li>
+      }
+    </ul>
+  </nav>
+</header>

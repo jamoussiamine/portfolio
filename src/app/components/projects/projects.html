@@ -1,0 +1,42 @@
+<section id="projets" class="section">
+  <div class="container">
+    <div appReveal>
+      <h2 class="section-title">Projets<span class="dot">.</span></h2>
+      <p class="section-lead">Une sélection de projets académiques et personnels, de la BI au machine learning.</p>
+    </div>
+
+    <div class="projects">
+      @for (p of projects; track p.title) {
+        <article class="card project">
+          <img class="project__img" [src]="p.image" [alt]="'Illustration du projet ' + p.title" width="640" height="360" loading="lazy" />
+          <div class="project__body">
+            <h3 class="project__title">{{ p.title }}</h3>
+            @if (p.note) {
+              <p class="project__note">{{ p.note }}</p>
+            }
+            <p class="project__desc">{{ p.description }}</p>
+            <ul class="project__tags">
+              @for (t of p.tags; track t) {
+                <li>{{ t }}</li>
+              }
+            </ul>
+            @if (p.github || p.demo) {
+              <div class="project__links">
+                @if (p.github) {
+                  <a [href]="p.github" target="_blank" rel="noopener">
+                    <app-icon name="github" [size]="18" /> Code <span class="sr-only">de {{ p.title }} sur GitHub</span>
+                  </a>
+                }
+                @if (p.demo) {
+                  <a [href]="p.demo" target="_blank" rel="noopener">
+                    <app-icon name="external" [size]="18" /> Démo <span class="sr-only">de {{ p.title }}</span>
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

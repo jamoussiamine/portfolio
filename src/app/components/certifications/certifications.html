@@ -1,0 +1,31 @@
+<section id="certifications" class="section">
+  <div class="container">
+    <div appReveal>
+      <h2 class="section-title">Certifications<span class="dot">.</span></h2>
+      <p class="section-lead">Blockchain, CRM et réseaux : des certifications vérifiables en un clic.</p>
+    </div>
+
+    <ul class="certs">
+      @for (c of certifications; track c.name; let i = $index) {
+        <li class="card cert" appReveal [revealDelay]="(i % 3) * 80">
+          <span class="cert__badge" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="9" r="6" />
+              <path d="M8.5 14 7 22l5-3 5 3-1.5-8" />
+            </svg>
+          </span>
+          <p class="cert__meta">{{ c.issuer }} · {{ c.date }}</p>
+          <h3 class="cert__name">{{ c.name }}</h3>
+          @if (c.credentialId) {
+            <p class="cert__id">ID : {{ c.credentialId }}</p>
+          }
+          @if (c.url) {
+            <a class="cert__link" [href]="c.url" target="_blank" rel="noopener">
+              <app-icon name="external" [size]="16" /> Voir le diplôme <span class="sr-only">{{ c.name }}</span>
+            </a>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+</section>

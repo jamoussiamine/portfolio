@@ -1,0 +1,96 @@
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-height) + 48px) 0 80px;
+  // Halo très discret derrière le nom
+  background: radial-gradient(60% 50% at 15% 40%, rgb(239 68 68 / 0.07), transparent 70%);
+}
+
+.hero__inner > * {
+  animation: rise 0.9s var(--ease) both;
+}
+.hero__inner > :nth-child(2) {
+  animation-delay: 0.08s;
+}
+.hero__inner > :nth-child(3) {
+  animation-delay: 0.16s;
+}
+.hero__inner > :nth-child(4) {
+  animation-delay: 0.24s;
+}
+.hero__inner > :nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.hero__hello {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+
+.hero__name {
+  font-size: clamp(2.8rem, 9vw, 6.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+
+  .dot {
+    color: var(--accent);
+  }
+}
+
+.hero__title {
+  margin-top: 24px;
+  min-height: 1.3em;
+  font-size: clamp(1.4rem, 3.6vw, 2.4rem);
+  font-weight: 500;
+  color: var(--text);
+
+  // Réserve 2 lignes sur mobile pour que le mot le plus long ne fasse pas sauter la page
+  @media (max-width: 560px) {
+    min-height: 2.4em;
+  }
+}
+
+.hero__typed {
+  color: var(--accent);
+}
+
+.hero__cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.95em;
+  margin-left: 4px;
+  vertical-align: -0.1em;
+  background: var(--accent);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero__tagline {
+  margin-top: 24px;
+  max-width: 600px;
+  color: var(--text-muted);
+  font-size: 1.12rem;
+}
+
+.hero__actions {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

@@ -1,0 +1,33 @@
+<section id="parcours" class="section">
+  <div class="container">
+    <div appReveal>
+      <h2 class="section-title">Parcours<span class="dot">.</span></h2>
+      <p class="section-lead">Stages en banque, en ERP et en développement, et un cursus d'ingénieur orienté data.</p>
+    </div>
+
+    <div class="columns">
+      @for (col of columns; track col.title) {
+        <div>
+          <h3 class="columns__title" appReveal>{{ col.title }}</h3>
+          <ol class="timeline">
+            @for (item of col.items; track item.title + item.place) {
+              <li class="timeline__item" appReveal>
+                <span class="timeline__dot" aria-hidden="true"></span>
+                <p class="timeline__period">{{ item.period }}</p>
+                <h4 class="timeline__title">{{ item.title }}</h4>
+                <p class="timeline__place">{{ item.place }}</p>
+                @if (item.points.length) {
+                  <ul class="timeline__points">
+                    @for (pt of item.points; track $index) {
+                      <li>{{ pt }}</li>
+                    }
+                  </ul>
+                }
+              </li>
+            }
+          </ol>
+        </div>
+      }
+    </div>
+  </div>
+</section>

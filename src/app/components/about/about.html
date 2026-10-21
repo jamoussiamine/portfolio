@@ -1,0 +1,32 @@
+<section id="a-propos" class="section">
+  <div class="container about">
+    <div class="about__text" appReveal>
+      <h2 class="section-title">À propos<span class="dot">.</span></h2>
+      @for (p of profile.about; track $index) {
+        <p class="about__p">{{ p }}</p>
+      }
+      <ul class="about__facts">
+        <li><span>Localisation</span>{{ profile.location }}</li>
+        <li><span>Recherche</span>Stage PFE · Tunisie / Paris</li>
+        <li><span>Langues</span>Arabe, français (B2), anglais (B2)</li>
+      </ul>
+    </div>
+
+    <div class="about__photo" appReveal [revealDelay]="120">
+      @if (!photoMissing()) {
+        <img
+          [src]="profile.photoUrl"
+          [alt]="'Photo de ' + profile.firstName + ' ' + profile.lastName"
+          width="400"
+          height="480"
+          loading="lazy"
+          (error)="photoMissing.set(true)"
+        />
+      } @else {
+        <div class="about__placeholder" role="img" [attr.aria-label]="'Initiales de ' + profile.lastName">
+          {{ initials }}
+        </div>
+      }
+    </div>
+  </div>
+</section>
