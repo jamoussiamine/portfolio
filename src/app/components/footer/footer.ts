@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BUILD_DATE } from '../../data/build-info';
 import { PROFILE } from '../../data/profile';
 import { Icon } from '../../shared/icon';
 
@@ -8,7 +9,12 @@ import { Icon } from '../../shared/icon';
   template: `
     <footer class="footer">
       <div class="container footer__inner">
-        <p>© {{ year }} {{ profile.firstName }} {{ profile.lastName }}<span class="dot">.</span> Tous droits réservés.</p>
+        <div>
+          <p>© {{ year }} {{ profile.firstName }} {{ profile.lastName }}<span class="dot">.</span> Tous droits réservés.</p>
+          <p class="footer__updated">
+            Dernière mise à jour : <time [attr.datetime]="updatedIso">{{ updated }}</time>
+          </p>
+        </div>
         <ul class="footer__social">
           <li><a [href]="profile.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><app-icon name="linkedin" /></a></li>
           <li><a [href]="'mailto:' + profile.email" aria-label="Email"><app-icon name="mail" /></a></li>
@@ -30,6 +36,10 @@ import { Icon } from '../../shared/icon';
       align-items: center;
       justify-content: space-between;
     }
+    .footer__updated {
+      margin-top: 4px;
+      font-size: 0.82rem;
+    }
     .dot { color: var(--accent); }
     .footer__social {
       display: flex;
@@ -49,4 +59,10 @@ import { Icon } from '../../shared/icon';
 export class Footer {
   protected readonly profile = PROFILE;
   protected readonly year = new Date().getFullYear();
+  protected readonly updatedIso = BUILD_DATE.slice(0, 10);
+  protected readonly updated = new Date(BUILD_DATE).toLocaleDateString('fr-FR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 }
