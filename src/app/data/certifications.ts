@@ -11,6 +11,12 @@ export interface Certification {
 
 export const CERTIFICATIONS: Certification[] = [
   {
+    name: 'AWS Academy Graduate - Cloud Foundations (Training Badge)',
+    issuer: 'Amazon Web Services Training and Certification',
+    date: 'Nov. 2026',
+    url: 'https://www.credly.com/badges/e5bee077-9084-4f01-b1fb-f05f9d4ac3aa/public_url',
+  },
+  {
     name: 'Hedera Business Foundation (HBF)',
     issuer: 'The Hashgraph Association',
     date: 'Oct. 2026',
