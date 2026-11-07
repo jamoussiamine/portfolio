@@ -11,6 +11,13 @@ export interface Certification {
 
 export const CERTIFICATIONS: Certification[] = [
   {
+    name: 'Deep Learning with PyTorch',
+    issuer: '365 Data Science',
+    date: 'Nov. 2026',
+    url: 'https://learn.365datascience.com/certificates/CC-E831733BFF/',
+    credentialId: 'CC-E831733BFF',
+  },
+  {
     name: 'AWS Academy Graduate - Cloud Foundations (Training Badge)',
     issuer: 'Amazon Web Services Training and Certification',
     date: 'Nov. 2026',

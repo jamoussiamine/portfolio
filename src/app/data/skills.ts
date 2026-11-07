@@ -29,6 +29,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     category: 'IA & Machine Learning',
     skills: [
       { name: 'Scikit-learn', icon: 'devicon-scikitlearn-plain' },
+      { name: 'Deep Learning (PyTorch)', icon: 'devicon-pytorch-original' },
       { name: 'Classification & régression' },
       { name: 'Clustering (K-Means)' },
       { name: 'LLM locaux (Ollama)' },
